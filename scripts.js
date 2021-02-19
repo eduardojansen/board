@@ -3,13 +3,15 @@ let timer,timeoutVal = 1000; // time it takes to wait for user to stop typing in
 const Board = {
   textarea: document.querySelector(".board"),
   init() {
-    
-
     Board.textarea.textContent = Storage.get()
-    
+    Board.textarea.focus()
+
+    if(Board.textarea.textContent === "") {
+      alert('Hi! type anything and keep it saved only in your browser')
+    }
+
     Board.textarea.addEventListener('keypress', Board.handleKeyPress);
     Board.textarea.addEventListener('keyup', Board.handleKeyUp);
-   
   },
   // when user is pressing down on keys, clear the timeout
   handleKeyPress(e) {
@@ -29,11 +31,11 @@ const Board = {
 }
 
 const Storage = {
-  get(){
+  get() {
     return localStorage.getItem('board:storage')
   },
-  set(board_text){
-    localStorage.setItem('board:storage', board_text )
+  set(board_text) {
+    localStorage.setItem('board:storage', board_text)
   }
 }
 

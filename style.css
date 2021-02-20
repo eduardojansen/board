@@ -120,4 +120,8 @@ p.subtitle {
     font-size: 14px;
     margin-bottom: 24px;
   }
+
+  button {
+    width: 90%;
+  }
 }

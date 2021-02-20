@@ -3,6 +3,7 @@ let timer,timeoutVal = 1000; // time it takes to wait for user to stop typing in
 const Modal = {
   close() {
     document.querySelector('.modal-overlay').classList.remove('active')
+    Board.textarea.focus()
   },
   show() {
     document.querySelector('.modal-overlay').classList.add('active')
@@ -13,7 +14,6 @@ const Board = {
   textarea: document.querySelector(".board"),
   init() {
     Board.textarea.textContent = Storage.get()
-    Board.textarea.focus()
 
     if(Board.textarea.textContent.trim() === "") {
       Modal.show()
